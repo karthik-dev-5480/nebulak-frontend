@@ -43,7 +43,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Base URL of your Spring Boot API
-const API_BASE_URL = "https://nebulak-backend.onrender.com";
+const API_BASE_URL = "http://localhost:5454";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
