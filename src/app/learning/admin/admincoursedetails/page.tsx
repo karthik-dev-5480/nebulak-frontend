@@ -1,11 +1,12 @@
 // app/admin/manage-content/page.tsx
 
-"use client";
+"use client"; // Keep this directive
 
 import React, { useState, useEffect, useCallback } from "react";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Course, Section } from "@/types/course"; // Import Course and Section interfaces
-import { useRouter, useSearchParams } from 'next/navigation';
+// Keep useSearchParams, it's now handled by the parent Suspense boundary
+import { useRouter, useSearchParams } from 'next/navigation'; 
 import { Plus } from 'lucide-react'; 
 import Image from 'next/image';
 
@@ -16,7 +17,8 @@ import CourseContentList from "@/components/Admin/CouseContentList";
 
 const AdminCourseDetails = () => {
     const router = useRouter();
-    const searchParams = useSearchParams();
+    // This line is what requires the Suspense wrapper in the parent layout/page
+    const searchParams = useSearchParams(); 
     const courseIdParam = searchParams.get('courseId');
     const courseId = courseIdParam ? parseInt(courseIdParam) : null;
 
@@ -72,6 +74,7 @@ const AdminCourseDetails = () => {
     }
 
     if (loading) {
+        // The Suspense fallback handles the initial loading state before this component mounts
         return (
             <div className="container py-20 text-center">
                 <Breadcrumb pageName="Course Details" description="Loading..." />
