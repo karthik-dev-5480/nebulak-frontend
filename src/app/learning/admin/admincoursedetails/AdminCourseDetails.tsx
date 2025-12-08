@@ -1,12 +1,10 @@
-// app/admin/manage-content/page.tsx
-
 "use client"; // Keep this directive
 
 import React, { useState, useEffect, useCallback } from "react";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Course, Section } from "@/types/course"; // Import Course and Section interfaces
-// Keep useSearchParams, it's now handled by the parent Suspense boundary
-import { useRouter, useSearchParams } from 'next/navigation'; 
+// NOTE: useSearchParams has been removed from this file.
+import { useRouter } from 'next/navigation'; 
 import { Plus } from 'lucide-react'; 
 import Image from 'next/image';
 
@@ -14,13 +12,17 @@ import SectionForm from "@/components/Admin/SectionForm";
 import TopicForm from "@/components/Admin/TopicForm";
 import CourseContentList from "@/components/Admin/CouseContentList";
 
+// Define props interface for the new component structure
+interface AdminCourseDetailsProps {
+    initialCourseId: number | null;
+}
 
-const AdminCourseDetails = () => {
+// Update the component to accept the courseId as a prop
+const AdminCourseDetails: React.FC<AdminCourseDetailsProps> = ({ initialCourseId }) => {
     const router = useRouter();
-    // This line is what requires the Suspense wrapper in the parent layout/page
-    const searchParams = useSearchParams(); 
-    const courseIdParam = searchParams.get('courseId');
-    const courseId = courseIdParam ? parseInt(courseIdParam) : null;
+    
+    // Get courseId from props, not useSearchParams()
+    const courseId = initialCourseId; 
 
     const [course, setCourse] = useState<Course | null>(null);
     const [sections, setSections] = useState<Section[]>([]);
@@ -36,6 +38,8 @@ const AdminCourseDetails = () => {
         setLoading(true);
         try {
             
+            // NOTE: The backend URL below seems to be a local development server, 
+            // ensure you update this for your Vercel deployment if needed (e.g., using environment variables).
             const response = await fetch(`http://localhost:5454/courses/course/${courseId}`);
             if (!response.ok) {
                 throw new Error(`Failed to fetch course details for ID: ${courseId}`);
@@ -55,6 +59,7 @@ const AdminCourseDetails = () => {
     }, [courseId]);
 
     useEffect(() => {
+        // Now it depends on the prop, which is stable after the initial client render
         fetchCourseDetails();
     }, [fetchCourseDetails]);
 
