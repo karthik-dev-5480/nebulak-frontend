@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams } from 'next/navigation'; 
 
 // Define the shape of the category data (same as in AddProduct)
@@ -8,7 +8,7 @@ interface Category {
   name: string;
 }
 
-const EditCourse = () => {
+const EditCourseContent = () => {
   // 1. Get search parameters from the URL
   const searchParams = useSearchParams();
   const courseId = searchParams.get('courseId') || ""; 
@@ -337,6 +337,20 @@ const EditCourse = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+const EditCourse = () => {
+  return (
+    <Suspense fallback={
+      <section id="edit-course" className="pt-16 pb-10 md:pt-20 lg:pt-28">
+        <div className="container text-center text-lg font-semibold">
+          Loading...
+        </div>
+      </section>
+    }>
+      <EditCourseContent />
+    </Suspense>
   );
 };
 

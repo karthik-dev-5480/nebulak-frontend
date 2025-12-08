@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Course, Section } from "@/types/course"; 
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -12,7 +12,7 @@ import StudentCourseContentList from "@/components/Courses/Student/StudentCoureC
 import TopicNoteForm from "@/components/Courses/Student/TopicNoteForm";
 
 
-const StudentCourseContent = () => {
+const StudentCourseContentInner = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const courseIdParam = searchParams.get('courseId');
@@ -178,6 +178,20 @@ const StudentCourseContent = () => {
                 </div>
             </section>
         </>
+    );
+};
+
+const StudentCourseContent = () => {
+    return (
+        <Suspense fallback={
+            <section className="pt-16 pb-10 md:pt-20 lg:pt-28">
+                <div className="container text-center text-lg font-semibold">
+                    Loading course details...
+                </div>
+            </section>
+        }>
+            <StudentCourseContentInner />
+        </Suspense>
     );
 };
 
