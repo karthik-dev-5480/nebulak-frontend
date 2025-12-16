@@ -1,0 +1,157 @@
+2025-12-13T09:33:17.739Z DEBUG 1 --- [nebulak] [io-5454-exec-27] org.hibernate.orm.sql.ast.tree           : SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (u1 : com.nebulak.model.User(2)) {
+          primaryTableReference : users as u1_0
+        }
+      }
+    }
+2025-12-13T09:33:17.943Z DEBUG 1 --- [nebulak] [io-5454-exec-27] org.hibernate.orm.sql.exec               : Skipping reading Query result cache data: cache-enabled = false, cache-mode = NORMAL
+2025-12-13T09:33:18.041Z DEBUG 1 --- [nebulak] [io-5454-exec-27] org.hibernate.SQL                        : select u1_0.id,u1_0.activation_token,u1_0.created_at,u1_0.display_name,u1_0.email,u1_0.enabled,u1_0.first_name,u1_0.last_name,u1_0.mobile,u1_0.password,u1_0.profile_pic,u1_0.token_expiry_date from users u1_0 where u1_0.email=?
+Hibernate: select u1_0.id,u1_0.activation_token,u1_0.created_at,u1_0.display_name,u1_0.email,u1_0.enabled,u1_0.first_name,u1_0.last_name,u1_0.mobile,u1_0.password,u1_0.profile_pic,u1_0.token_expiry_date from users u1_0 where u1_0.email=?
+2025-12-13T09:33:18.183Z DEBUG 1 --- [nebulak] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@f439e0f is alive
+2025-12-13T09:33:18.942Z DEBUG 1 --- [nebulak] [io-5454-exec-27] org.hibernate.orm.results                : Initializer list:
+	  com.nebulak.model.User(2).ownedCourses -> DelayedCollectionInitializer(com.nebulak.model.User(2).ownedCourses)@2103616127 (PluralAttribute(com.nebulak.model.User.ownedCourses))
+	  com.nebulak.model.User(2).cart -> EntitySelectFetchByUniqueKeyInitializer(com.nebulak.model.User(2).cart)@164045181 (ToOneAttributeMapping(NavigableRole[com.nebulak.model.User.cart])@974026582)
+	  com.nebulak.model.User(2).enrollments -> DelayedCollectionInitializer(com.nebulak.model.User(2).enrollments)@767811870 (PluralAttribute(com.nebulak.model.User.enrollments))
+	  com.nebulak.model.User(2) -> EntityJoinedFetchInitializer(com.nebulak.model.User(2))@1019156443 (SingleTableEntityPersister(com.nebulak.model.User))
+	  com.nebulak.model.User(2).roles -> DelayedCollectionInitializer(com.nebulak.model.User(2).roles)@205719032 (PluralAttribute(com.nebulak.model.User.roles))
+	  com.nebulak.model.User(2).orders -> DelayedCollectionInitializer(com.nebulak.model.User(2).orders)@1170106337 (PluralAttribute(com.nebulak.model.User.orders))
+2025-12-13T09:33:20.238Z DEBUG 1 --- [nebulak] [io-5454-exec-18] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1335) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1220) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:781) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:345) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2025-12-13T09:33:20.240Z DEBUG 1 --- [nebulak] [io-5454-exec-18] o.apache.coyote.http11.Http11Processor   : Error state [CLOSE_CONNECTION_NOW] reported while processing request
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1335) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1220) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:781) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:345) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2025-12-13T09:33:20.640Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1554247339<open>)] for JPA transaction
+2025-12-13T09:33:20.640Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-12-13T09:33:20.642Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.h.e.t.internal.TransactionImpl         : On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2025-12-13T09:33:20.643Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.h.e.t.internal.TransactionImpl         : begin
+2025-12-13T09:33:20.947Z DEBUG 1 --- [nebulak] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@64f5d5f5 is alive
+2025-12-13T09:33:21.043Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@1c1361a7]
+2025-12-13T09:33:21.045Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.h.j.internal.PersistenceUnitUtilImpl   : jakarta.persistence.PersistenceUnitUtil.getIdentifier is only intended to work with enhanced entities (although Hibernate also adapts this support to its proxies); however the passed entity was not enhanced (nor a proxy).. may not be able to read identifier
+2025-12-13T09:33:21.543Z DEBUG 1 --- [nebulak] [io-5454-exec-27] org.hibernate.engine.spi.ActionQueue     : Executing identity-insert immediately
+2025-12-13T09:33:21.740Z DEBUG 1 --- [nebulak] [io-5454-exec-27] org.hibernate.SQL                        : insert into users (activation_token,created_at,display_name,email,enabled,first_name,last_name,mobile,password,profile_pic,token_expiry_date) values (?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into users (activation_token,created_at,display_name,email,enabled,first_name,last_name,mobile,password,profile_pic,token_expiry_date) values (?,?,?,?,?,?,?,?,?,?,?)
+2025-12-13T09:33:22.241Z DEBUG 1 --- [nebulak] [io-5454-exec-27] org.hibernate.orm.results                : Initializer list is empty
+2025-12-13T09:33:22.341Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.h.id.IdentifierGeneratorHelper         : Extracted generated values [com.nebulak.model.User]: [Ljava.lang.Object;@4ef3766f
+2025-12-13T09:33:22.347Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2025-12-13T09:33:22.438Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1554247339<open>)]
+2025-12-13T09:33:22.438Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.h.e.t.internal.TransactionImpl         : committing
+2025-12-13T09:33:22.439Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.h.e.i.AbstractFlushingEventListener    : Processing flush-time cascades
+2025-12-13T09:33:22.440Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.h.e.i.AbstractFlushingEventListener    : Dirty checking collections
+2025-12-13T09:33:22.538Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.hibernate.engine.internal.Collections  : Collection found: [com.nebulak.model.User.enrollments#10], was: [<unreferenced>] (initialized)
+2025-12-13T09:33:22.538Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.hibernate.engine.internal.Collections  : Collection found: [com.nebulak.model.User.orders#10], was: [<unreferenced>] (initialized)
+2025-12-13T09:33:22.538Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.hibernate.engine.internal.Collections  : Collection found: [com.nebulak.model.User.ownedCourses#10], was: [<unreferenced>] (initialized)
+2025-12-13T09:33:22.538Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.hibernate.engine.internal.Collections  : Collection found: [com.nebulak.model.User.roles#10], was: [<unreferenced>] (initialized)
+2025-12-13T09:33:22.543Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.h.e.i.AbstractFlushingEventListener    : Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+2025-12-13T09:33:22.543Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.h.e.i.AbstractFlushingEventListener    : Flushed: 4 (re)creations, 0 updates, 0 removals to 4 collections
+2025-12-13T09:33:22.544Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.hibernate.internal.util.EntityPrinter  : Listing entities:
+2025-12-13T09:33:22.545Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.hibernate.internal.util.EntityPrinter  : com.nebulak.model.User{lastName=, tokenExpiryDate=Sun Dec 14 09:33:15 UTC 2025, displayName= , roles=[], mobile=null, profile_pic=null, cart=null, enabled=false, enrollments=[], createdAt=null, firstName=, password=$2a$10$QljwxkWfSM/Y7gdpV4R61OcEjfehidvXjfnLSK593qRDJwh0Hp98S, ownedCourses=[], orders=[], id=10, email=ch.karthik5480@gmail.com, activationToken=328107b5-3cb5-44ee-ba8f-15d20128ec69}
+2025-12-13T09:33:23.138Z DEBUG 1 --- [nebulak] [io-5454-exec-27] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+inmail service
+Welcome! Thank you for signing up. Please click the link below to activate your account:
+http://localhost:5454/auth/activate/328107b5-3cb5-44ee-ba8f-15d20128ec69
+This link will expire in 24 hours.
+http://localhost:5454/auth/activate/328107b5-3cb5-44ee-ba8f-15d20128ec69
+ch.karthik5480@gmail.com
+SimpleMailMessage: from=dev.karthik.cheekati@gmail.com; replyTo=null; to=ch.karthik5480@gmail.com; cc=; bcc=; sentDate=null; subject=Account Activation Required; text=Welcome! Thank you for signing up. Please click the link below to activate your account:
+http://localhost:5454/auth/activate/328107b5-3cb5-44ee-ba8f-15d20128ec69
+This link will expire in 24 hours.
+2025-12-13T09:33:23.544Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : Jakarta Mail version 2.1.3
+2025-12-13T09:33:23.844Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : URL jar:nested:/app/app.jar/!BOOT-INF/lib/jakarta.mail-2.0.4.jar!/META-INF/javamail.providers
+2025-12-13T09:33:23.846Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : successfully loaded resource: jar:nested:/app/app.jar/!BOOT-INF/lib/jakarta.mail-2.0.4.jar!/META-INF/javamail.providers
+2025-12-13T09:33:23.939Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : successfully loaded resource: /META-INF/javamail.default.providers
+2025-12-13T09:33:23.941Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : Tables of loaded providers
+2025-12-13T09:33:23.942Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : Providers Listed By Class Name: {org.eclipse.angus.mail.imap.IMAPStore=jakarta.mail.Provider[STORE,imap,org.eclipse.angus.mail.imap.IMAPStore,Oracle], org.eclipse.angus.mail.smtp.SMTPTransport=jakarta.mail.Provider[TRANSPORT,smtp,org.eclipse.angus.mail.smtp.SMTPTransport,Oracle], org.eclipse.angus.mail.pop3.POP3Store=jakarta.mail.Provider[STORE,pop3,org.eclipse.angus.mail.pop3.POP3Store,Oracle], org.eclipse.angus.mail.pop3.POP3SSLStore=jakarta.mail.Provider[STORE,pop3s,org.eclipse.angus.mail.pop3.POP3SSLStore,Oracle], org.eclipse.angus.mail.smtp.SMTPSSLTransport=jakarta.mail.Provider[TRANSPORT,smtps,org.eclipse.angus.mail.smtp.SMTPSSLTransport,Oracle], org.eclipse.angus.mail.imap.IMAPSSLStore=jakarta.mail.Provider[STORE,imaps,org.eclipse.angus.mail.imap.IMAPSSLStore,Oracle]}
+2025-12-13T09:33:23.942Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : Providers Listed By Protocol: {imap=jakarta.mail.Provider[STORE,imap,org.eclipse.angus.mail.imap.IMAPStore,Oracle], smtp=jakarta.mail.Provider[TRANSPORT,smtp,org.eclipse.angus.mail.smtp.SMTPTransport,Oracle], pop3=jakarta.mail.Provider[STORE,pop3,org.eclipse.angus.mail.pop3.POP3Store,Oracle], imaps=jakarta.mail.Provider[STORE,imaps,org.eclipse.angus.mail.imap.IMAPSSLStore,Oracle], smtps=jakarta.mail.Provider[TRANSPORT,smtps,org.eclipse.angus.mail.smtp.SMTPSSLTransport,Oracle], pop3s=jakarta.mail.Provider[STORE,pop3s,org.eclipse.angus.mail.pop3.POP3SSLStore,Oracle]}
+2025-12-13T09:33:23.943Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : successfully loaded resource: /META-INF/javamail.default.address.map
+2025-12-13T09:33:23.944Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : URL jar:nested:/app/app.jar/!BOOT-INF/lib/jakarta.mail-2.0.4.jar!/META-INF/javamail.address.map
+2025-12-13T09:33:23.945Z  INFO 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : successfully loaded resource: jar:nested:/app/app.jar/!BOOT-INF/lib/jakarta.mail-2.0.4.jar!/META-INF/javamail.address.map
+2025-12-13T09:33:24.242Z DEBUG 1 --- [nebulak] [io-5454-exec-27] jakarta.mail                             : getProvider() returning jakarta.mail.Provider[TRANSPORT,smtp,org.eclipse.angus.mail.smtp.SMTPTransport,Oracle]
+2025-12-13T09:33:24.440Z DEBUG 1 --- [nebulak] [io-5454-exec-27] org.eclipse.angus.mail.smtp              : useEhlo true, useAuth true
+2025-12-13T09:33:24.440Z DEBUG 1 --- [nebulak] [io-5454-exec-27] org.eclipse.angus.mail.smtp              : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-12-13T09:33:25.147Z DEBUG 1 --- [nebulak] [io-5454-exec-16] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1335) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1220) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:781) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:345) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2025-12-13T09:33:25.147Z DEBUG 1 --- [nebulak] [nio-5454-exec-7] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1335) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1220) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:781) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:345) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2025-12-13T09:33:25.148Z DEBUG 1 --- [nebulak] [nio-5454-exec-7] o.apache.coyote.http11.Http11Processor   : Error state [CLOSE_CONNECTION_NOW] reported while processing request
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1335) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1220) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:781) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:345) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2025-12-13T09:33:25.148Z DEBUG 1 --- [nebulak] [io-5454-exec-16] o.apache.coyote.http11.Http11Processor   : Error state [CLOSE_CONNECTION_NOW] reported while processing request
+java.io.EOFException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1335) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1220) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:781) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:345) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.46.jar!/:na]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]

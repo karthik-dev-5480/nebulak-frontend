@@ -140,7 +140,7 @@ const RoleManagementView = () => {
       setIsLoading(true);
       try {
         // 1. Fetch Users (Employees)
-        const userResponse = await fetch("http://localhost:5454/auth/users/getallusers"); 
+        const userResponse = await fetch("https://nebulak-backend.onrender.com/auth/users/getallusers"); 
         if (!userResponse.ok) throw new Error("Failed to fetch users.");
         const result = await userResponse.json(); 
     const userData: User[] = result.content || [];
@@ -150,7 +150,7 @@ const RoleManagementView = () => {
         }
 
         // 2. Fetch Roles
-        const roleResponse = await fetch("http://localhost:5454/auth/roles/getallroles");
+        const roleResponse = await fetch("https://nebulak-backend.onrender.com/auth/roles/getallroles");
         if (!roleResponse.ok) throw new Error("Failed to fetch roles.");
         const roleData: Role[] = await roleResponse.json();
         setRoles(roleData);
@@ -182,7 +182,7 @@ const RoleManagementView = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5454/auth/users/assignrole", {
+      const response = await fetch("https://nebulak-backend.onrender.com/users/assignrole", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
