@@ -28,7 +28,7 @@ const AddRoleForm = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5454/auth/role/add", {
+      const response = await fetch("https://nebulak-backend.onrender.com/auth/role/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
