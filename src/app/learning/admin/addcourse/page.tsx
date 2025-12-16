@@ -7,6 +7,8 @@ interface Category {
   name: string;
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 // --- JWT Hook (Copied from AdminCourses) ---
 const token = "token"; // Assuming this is your localStorage key
 const useAuthToken = () => {
@@ -49,7 +51,7 @@ const AddProduct = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:5454/courses/getcategories");
+        const response = await fetch(`${API_BASE_URL}/courses/getcategories`);
         if (!response.ok) {
           throw new Error("Failed to fetch categories");
         }
@@ -103,7 +105,7 @@ const AddProduct = () => {
     formData.append("image", fileInputRef.current.files[0]);
 
     try {
-      const response = await fetch("http://localhost:5454/courses/addcourse", {
+      const response = await fetch(`${API_BASE_URL}/courses/addcourse`, {
         method: "POST",
         // --- ADDED Authorization Header with JWT ---
         headers: {

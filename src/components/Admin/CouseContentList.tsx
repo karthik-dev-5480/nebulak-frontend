@@ -27,6 +27,7 @@ interface VideoModalProps {
     topicId: number;
     onClose: () => void;
 }
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const VideoModal = ({ topicId, onClose }: VideoModalProps) => {
     const authToken = useAuthToken(); 
@@ -43,7 +44,7 @@ const VideoModal = ({ topicId, onClose }: VideoModalProps) => {
                 return;
             }
 
-            const SECURE_VIDEO_API = `http://localhost:5454/courses/secure/video/${topicId}`;
+            const SECURE_VIDEO_API = `${API_BASE_URL}/secure/video/${topicId}`;
             
             try {
                
@@ -154,8 +155,8 @@ const CourseContentList = ({ courseId, sections, refetchContent }: CourseContent
         }
 
         console.log(`[ADMIN ACTION] Deleting ${type} ID: ${topic_id || section_id}...`);
-        const SECTION_DELETE_API_BASE = "http://localhost:5454/courses/deletesection";
-        const TOPIC_DELETE_API_BASE = "http://localhost:5454/courses/deletetopic/course";
+        const SECTION_DELETE_API_BASE = `${API_BASE_URL}/courses/deletesection`;
+        const TOPIC_DELETE_API_BASE = `${API_BASE_URL}/courses/deletetopic/course`;
         
         if (!authToken) { 
             alert("Authorization token is missing. Cannot proceed with deletion.");

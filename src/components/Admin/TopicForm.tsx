@@ -26,6 +26,7 @@ interface TopicFormData {
     videoFile: File | null;
     sectionId: number;
 }
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 // Custom Loading Overlay Component
 const LoadingOverlay = () => (
@@ -113,7 +114,7 @@ const TopicForm = ({ courseId, sections, onTopicAdded }: TopicFormProps) => {
         formData.append('video', topicData.videoFile);
         
         // Construct the API URL using the provided courseId and selected sectionId
-        const apiUrl = `http://localhost:5454/courses/addtopic/course/${courseId}/section/${topicData.sectionId}`;
+        const apiUrl = `${API_BASE_URL}/courses/addtopic/course/${courseId}/section/${topicData.sectionId}`;
         
         try {
             // Simulate a longer wait time for large files before fetching

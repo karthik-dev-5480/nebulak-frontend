@@ -9,6 +9,7 @@ interface SectionFormProps {
     courseId: number;
     onSectionAdded: () => void;
 }
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const SectionForm = ({ courseId, onSectionAdded }: SectionFormProps) => {
     const [sectionData, setSectionData] = useState({
@@ -38,7 +39,7 @@ const SectionForm = ({ courseId, onSectionAdded }: SectionFormProps) => {
 
         console.log("Submitting Section:", payload);
          try {
-            const response = await fetch(`http://localhost:5454/courses/addsection/${courseId}`, {
+            const response = await fetch(`${API_BASE_URL}/courses/addsection/${courseId}`, {
                method: 'POST',
              headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload), // Use the fixed payload
