@@ -182,7 +182,7 @@ const RoleManagementView = () => {
     };
 
     try {
-      const response = await fetch("https://nebulak-backend.onrender.com/users/assignrole", {
+      const response = await fetch("https://nebulak-backend.onrender.com/auth/users/assignrole", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
