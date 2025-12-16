@@ -7,6 +7,7 @@ interface Category {
   id: number;
   name: string;
 }
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const EditCourseContent = () => {
   // 1. Get search parameters from the URL
@@ -35,7 +36,7 @@ const EditCourseContent = () => {
   useEffect(() => {
     const fetchCategories = async () => {
         try {
-            const response = await fetch("http://localhost:5454/courses/getcategories");
+            const response = await fetch(`${API_BASE_URL}/courses/getcategories`);
             if (!response.ok) {
                 throw new Error("Failed to fetch categories");
             }
@@ -64,7 +65,7 @@ const EditCourseContent = () => {
 
   const fetchCourseData = async (id: string) => {
     try {
-       const response = await fetch(`http://localhost:5454/courses/course/${id}`);
+       const response = await fetch(`${API_BASE_URL}/courses/course/${id}`);
        if (!response.ok) {
            throw new Error(`Failed to fetch course details for ID: ${id}`);
        }
@@ -130,7 +131,7 @@ const EditCourseContent = () => {
 
     try {
       // NOTE: Ensure your backend endpoint is correct (it should be /editcourse/{courseId})
-      const response = await fetch(`http://localhost:5454/courses/editcourse/${courseId}`, {
+      const response = await fetch(`${API_BASE_URL}/courses/editcourse/${courseId}`, {
         method: "PUT",
         body: formData,
       });

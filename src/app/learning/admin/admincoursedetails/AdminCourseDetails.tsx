@@ -16,6 +16,7 @@ import CourseContentList from "@/components/Admin/CouseContentList";
 interface AdminCourseDetailsProps {
     initialCourseId: number | null;
 }
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 // Update the component to accept the courseId as a prop
 const AdminCourseDetails: React.FC<AdminCourseDetailsProps> = ({ initialCourseId }) => {
@@ -40,7 +41,7 @@ const AdminCourseDetails: React.FC<AdminCourseDetailsProps> = ({ initialCourseId
             
             // NOTE: The backend URL below seems to be a local development server, 
             // ensure you update this for your Vercel deployment if needed (e.g., using environment variables).
-            const response = await fetch(`http://localhost:5454/courses/course/${courseId}`);
+            const response = await fetch(`${API_BASE_URL}/courses/course/${courseId}`);
             if (!response.ok) {
                 throw new Error(`Failed to fetch course details for ID: ${courseId}`);
             }

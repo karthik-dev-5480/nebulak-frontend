@@ -11,6 +11,7 @@ import Image from 'next/image';
 import StudentCourseContentList from "@/components/Courses/Student/StudentCoureContentList";
 import TopicNoteForm from "@/components/Courses/Student/TopicNoteForm";
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const StudentCourseContentInner = () => {
     const router = useRouter();
@@ -35,7 +36,7 @@ const StudentCourseContentInner = () => {
         setLoading(true);
         try {
             // Re-using the same public API endpoint to fetch course data
-            const response = await fetch(`http://localhost:5454/courses/course/${courseId}`);
+            const response = await fetch(`${API_BASE_URL}/courses/course/${courseId}`);
             if (!response.ok) {
                 throw new Error(`Failed to fetch course details for ID: ${courseId}`);
             }

@@ -24,6 +24,7 @@ interface Page<T> {
 }
 // -------------------------------------------------------------------------
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 // Simple Loading Component
 const SimpleLoader = () => (
@@ -137,7 +138,7 @@ const UsersPage = () => {
         try {
             // Use the 0-based page index in the URL
             const response = await fetch(
-                `http://localhost:5454/auth/users/getallusers?page=${zeroBasedPage}&size=${size}`
+                `${API_BASE_URL}/auth/users/getallusers?page=${zeroBasedPage}&size=${size}`
             );
 
             if (!response.ok) {

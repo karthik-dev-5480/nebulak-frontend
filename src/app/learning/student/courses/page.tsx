@@ -25,6 +25,7 @@ const mockDurations = [
 ];
 
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const Courses = () => {
   const [courses, setCourses] = useState<Course[]>([]);
@@ -47,7 +48,7 @@ const Courses = () => {
   const fetchCategories = async () => {
       setLoadingCategories(true);
       try {
-          const response = await fetch("http://localhost:5454/courses/getcategories");
+          const response = await fetch(`${API_BASE_URL}/courses/getcategories`);
           if (!response.ok) {
               throw new Error("Failed to fetch categories");
           }
@@ -82,7 +83,7 @@ const Courses = () => {
       params.append('duration', selectedDuration);
     }
   
-    const url = `http://localhost:5454/courses/getcourses?${params.toString()}`;
+    const url = `${API_BASE_URL}/courses/getcourses?${params.toString()}`;
 
     try {
       const response = await fetch(url);
