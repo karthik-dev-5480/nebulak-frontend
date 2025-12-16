@@ -32,6 +32,8 @@ const mockDurations = [
     { value: "18", label: "10+ Hours" },
 ];
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 // --- New: Add Category Modal Component ---
 const AddCategoryModal = ({ onClose, onSave, isLoading }) => {
     const [categoryName, setCategoryName] = useState('');
@@ -119,7 +121,7 @@ const AdminCourses = () => {
   const fetchCategories = async () => {
       setLoadingCategories(true);
       try {
-          const response = await fetch("http://localhost:5454/courses/getcategories");
+          const response = await fetch(`${API_BASE_URL}/courses/getcategories`);
           if (!response.ok) {
               throw new Error("Failed to fetch categories");
           }
@@ -140,7 +142,7 @@ const AdminCourses = () => {
   const handleAddCategory = async (categoryName: string) => {
     setIsSavingCategory(true);
     try {
-        const response = await fetch("http://localhost:5454/courses/addcategory", {
+        const response = await fetch(`${API_BASE_URL}/courses/addcategory`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -189,7 +191,7 @@ const AdminCourses = () => {
 
     
   
-    const url = `http://localhost:5454/courses/admin/getcourses?${params.toString()}`;
+    const url = `${API_BASE_URL}/courses/admin/getcourses?${params.toString()}`;
     
     // Console log to see the token being used
     console.log("Fetching courses with JWT:", jwt ? "Token Present" : "Token NULL/Missing");
@@ -273,7 +275,7 @@ const AdminCourses = () => {
       console.log(`[ADMIN ACTION] Deleting Course ID: ${courseId}...`);
       
       try {
-          const response = await fetch(`http://localhost:5454/courses/deletecourse/${courseId}`, {
+          const response = await fetch(`${API_BASE_URL}/courses/deletecourse/${courseId}`, {
               method: 'DELETE',
           });
           if (response.ok) {
