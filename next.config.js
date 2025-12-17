@@ -19,6 +19,13 @@ const nextConfig = {
         port: "",
         pathname: '/**',
       },
+      {
+        protocol: "https",
+        // Added the region 'ap-south-1' to match your actual URL
+        hostname: "karthiknewproduct.s3.ap-south-1.amazonaws.com",
+        port: "",
+        pathname: '/**',
+      },
     ],
   },
 };
