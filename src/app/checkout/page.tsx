@@ -19,7 +19,7 @@ const useAuthToken = () => {
   return jwt;
 };
 
-const API_BASE_URL = "http://localhost:5454";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 const BASE_CART_FETCH_URL = `${API_BASE_URL}/cart/user/checkout`; 
 const RAZORPAY_KEY_ID = "rzp_test_RaByK8gDEWOIqc"; 
 
