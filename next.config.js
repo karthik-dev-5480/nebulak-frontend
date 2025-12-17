@@ -20,11 +20,13 @@ const nextConfig = {
         pathname: '/**',
       },
       {
-        protocol: "https",
-        // Added the region 'ap-south-1' to match your actual URL
-        hostname: "karthiknewproduct.s3.ap-south-1.amazonaws.com",
-        port: "",
-        pathname: '/**',
+       source: "/**",
+        headers: [
+          { key: "Access-Control-Allow-Credentials", value: "true" },
+          { key: "Access-Control-Allow-Origin", value: "*" }, // Replace with your actual domain
+          { key: "Access-Control-Allow-Methods", value: "GET,DELETE,PATCH,POST,PUT" },
+          { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+        ]
       },
     ],
   },
