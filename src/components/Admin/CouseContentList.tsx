@@ -44,7 +44,7 @@ const VideoModal = ({ topicId, onClose }: VideoModalProps) => {
                 return;
             }
 
-            const SECURE_VIDEO_API = `${API_BASE_URL}/secure/video/${topicId}`;
+            const SECURE_VIDEO_API = `${API_BASE_URL}/courses/secure/video/${topicId}`;
             
             try {
                
