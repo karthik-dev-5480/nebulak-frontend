@@ -25,6 +25,7 @@ const useAuthToken = (): string | null => {
     return jwt;
 };
 // --- END: Auth Token Hook ---
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 interface StudentCourseContentListProps {
     sections: Section[]; 
@@ -68,7 +69,7 @@ const VideoModal = ({ topicId, onClose }: VideoModalProps) => {
             }
 
             // This is the same API call used in the Admin component's VideoModal
-            const SECURE_VIDEO_API = `http://localhost:5454/courses/secure/video/${topicId}`;
+            const SECURE_VIDEO_API = `${API_BASE_URL}/courses/secure/video/${topicId}`;
             
             try {
                 const response = await fetch(SECURE_VIDEO_API, {

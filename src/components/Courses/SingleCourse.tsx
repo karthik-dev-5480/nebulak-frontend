@@ -20,7 +20,7 @@ const useAuthToken = () => {
   return jwt; 
 };
 
-const API_BASE_URL = "http://localhost:5454";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const CART_FETCH_URL = `${API_BASE_URL}/cart/user`;
 const ENROLLMENT_FETCH_URL = `${API_BASE_URL}/api/user/enrollments`;
