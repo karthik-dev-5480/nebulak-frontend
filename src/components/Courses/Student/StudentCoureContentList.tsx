@@ -161,6 +161,7 @@ const VideoModal = ({ topicId, onClose }: VideoModalProps) => {
                                     className="absolute top-0 left-0 w-full h-full rounded-b-lg"
                                     src={finalVideoUrl} // finalVideoUrl is the direct secure URL here
                                     controls
+                                    crossOrigin="anonymous"
                                     autoPlay
                                     poster="" 
                                     onContextMenu={(e) => e.preventDefault()} // Basic anti-download measure
